@@ -12,7 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tb_kendaraan', function (Blueprint $table) {
-            $table->id();
+            $table->integer('id_kendaraan', 11);
+            $table->string('plat_nomor', 15);
+            $table->string('jenis_kendaraan', 20);
+            $table->string('warna', 20);
+            $table->string('pemilik', 20);
+            $table->integer('id_user', 11);
             $table->timestamps();
         });
     }
@@ -22,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('kendaraans');
+        Schema::dropIfExists('tb_kendaraan');
     }
 };
