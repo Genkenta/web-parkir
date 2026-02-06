@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class TarifParkir extends Model
 {
     use HasFactory;
+
+    /**
+     * fillable
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'jenis_kendaraan',
+        'tarif_per_jam',
+    ];
+
 }
