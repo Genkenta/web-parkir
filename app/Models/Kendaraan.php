@@ -8,4 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Kendaraan extends Model
 {
     use HasFactory;
+
+    /**
+     * fillable
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'plat_nomor',
+        'jenis_kendaraan',
+        'warna',
+        'pemilik',
+        'id_user',
+    ];
+
 }
