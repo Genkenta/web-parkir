@@ -16,15 +16,9 @@ return new class extends Migration
             $table->string('plat_nomor', 15);
             $table->string('jenis_kendaraan', 20);
             $table->string('warna', 20);
-            $table->string('pemilik', 20);
-            $table->unsignedInteger('id_user');
+            $table->string('pemilik', 100);
+            $table->integer('id_user');
             $table->timestamps();
-
-            $table->foreign('id_user')
-          ->references('id_user')
-          ->on('tb_user')
-          ->cascadeOnDelete()
-          ->cascadeOnUpdate();
         });
     }
 
