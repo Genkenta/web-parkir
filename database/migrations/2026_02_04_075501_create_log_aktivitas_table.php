@@ -12,16 +12,21 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tb_log_aktivitas', function (Blueprint $table) {
-            $table->increments('log_aktivitas', 11);
+    $table->increments('id_log');
 
-            $table->foreign('id_user')
-                  ->on('tb_user')
-                  ->OnDelete('cascade')
-                  ->OnUpdate('cascade');
-            $table->string('aktivitas', 100);
-            $table->dateTime('waktu_aktivitas');
-            $table->timestamps();
-        });
+    $table->unsignedInteger('id_user'); // WAJIB ADA
+
+    $table->string('aktivitas', 100);
+    $table->dateTime('waktu_aktivitas');
+
+    $table->timestamps();
+
+    $table->foreign('id_user')
+          ->references('id_user')
+          ->on('tb_user')
+          ->cascadeOnDelete()
+          ->cascadeOnUpdate();
+});
     }
 
     /**
@@ -29,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('log_aktivitas');
+        Schema::dropIfExists('tb_log_aktivitas');
     }
 };
