@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tb_user', function (Blueprint $table) {
-            $table->increments('id_user', 11);
+            $table->increments('id_user');
             $table->string('nama_lengkap', 50);
-            $table->string('username', 50);
+            $table->string('username', 50)->unique();
             $table->string('password', 100);
             $table->enum('role', ['admin', 'petugas' ,'owner']);
-            $table->tinyInteger('status_aktif', 1);
+            $table->tinyInteger('status_aktif')->default(1);
             $table->timestamps();
         });
     }
